@@ -10,7 +10,7 @@ use git_digger::Repository;
 
 use mdbook::config::TextDirection;
 
-const REPO: &str = "https://github.com/szabgab/public-mdbooks/";
+const REPO: &str = "https://github.com/szabgab/mdbooks.code-maven.com/";
 struct Language {
     code: &'static str,
     name: &'static str,
@@ -539,7 +539,7 @@ fn index_page(mdbooks: &Vec<MDBook>) -> String {
     md += "This is a list of mdBooks with public source.\n";
     md += "If you are using mdBook we hope that this site will help you learn how others are using it, which plugins are available and how to use those.\n";
     md += "If you are developing plugins for mdBook or mdBook itself, then we hope this will help you see who uses your plugin and how it is being used.\n";
-    md += "The list is generated from the `mdbooks.yaml` file in our [repository](https://github.com/szabgab/public-mdbooks).\n\n";
+    md += "The list is generated from the `mdbooks.yaml` file in our [repository](https://github.com/szabgab/mdbooks.code-maven.com).\n\n";
     md += "If you would like to add a book to this list, or add a description please submit a PR to change the `mdbooks.yaml` file.\n\n";
     md += "Check out the [mdBook User manual](https://rust-lang.github.io/mdBook/) for more information.\n\n";
     md += format!("Total number of books: {}\n\n", mdbooks.len()).as_str();
@@ -598,7 +598,7 @@ fn errors_page(mdbooks: &Vec<MDBook>) -> String {
         .count();
 
     md += "The errors are as reported by our parser. They might or might not be real problems.\n";
-    md += "If you think the error is incorrect, please open an issue on [our repository](https://github.com/szabgab/public-mdbooks).\n";
+    md += "If you think the error is incorrect, please open an issue on [our repository](https://github.com/szabgab/mdbooks.code-maven.com).\n";
     md += "If you think the problem is with the specific mdbook, please open an issue on the repository of that mdbook.\n";
     md += "We still need to clean up the error messages.\n\n";
     md += format!(
