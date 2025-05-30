@@ -297,6 +297,9 @@ struct Cli {
 
     #[arg(long, help = "Create the report")]
     report: bool,
+
+    #[arg(long, help = "Set logging to debug level")]
+    debug: bool,
 }
 
 #[derive(Debug, Deserialize)]
@@ -378,8 +381,16 @@ struct Build {
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
-    env_logger::init();
     let args = Cli::parse();
+
+    let mut builder = env_logger::Builder::new();
+    let log_level = if args.debug {
+        String::from("debug")
+    } else {
+        std::env::var("RUST_LOG").unwrap_or(String::from("warn"))
+    };
+    builder.parse_filters(&log_level);
+    builder.init();
 
     let repos_dir = get_repos_dir();
 
@@ -711,7 +722,7 @@ fn language_page(mdbooks: &Vec<MDBook>) -> String {
             }
         )
         .as_str();
-        md  += "\n";
+        md += "\n";
     }
 
     std::fs::write("report/src/language.md", md).unwrap();
