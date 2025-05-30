@@ -23,8 +23,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      MDBOOK_VERSION: 0.4.47
-      EMBEDIFY_VERSION: 0.2.11
+      MDBOOK_VERSION: 0.4.51
+      EMBEDIFY_VERSION: 0.2.13
       ALERTS_VERSION: 0.7.0
       LINKCHECK_VERSION: 0.7.7
     steps:
