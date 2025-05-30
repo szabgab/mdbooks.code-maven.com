@@ -886,3 +886,9 @@
   repo: https://github.com/Igigog/anomaly-modding-book
   site: https://igigog.github.io/anomaly-modding-book/
   description: Introductory book for Stalker Anomaly modding
+
+- title: The Rhai Book
+  repo: https://github.com/rhaiscript/book
+  site: https://rhai.rs/book/
+  description: Rhai is an embedded scripting language and evaluation engine for Rust that gives a safe and easy way to add scripting to any application.
+
