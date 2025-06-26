@@ -187,10 +187,6 @@
   repo: https://github.com/mautrix/docs
   folder: maubot
 
-- title: Foundry Book
-  repo: https://github.com/foundry-rs/book
-  site: https://book.getfoundry.sh/
-
 - title: Solidity in Foundry
   repo: https://github.com/Genesis3800/Solidity-in-Foundry-mdbook
   site: https://www.solidity-in-foundry.com/
