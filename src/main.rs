@@ -437,22 +437,19 @@ fn get_repos_dir() -> PathBuf {
 
     if repos_dir.exists() {
         if repos_dir.is_file() {
-            eprintln!("The {:?} is a file but it needs to be a folder.", repos_dir);
+            eprintln!("The {repos_dir:?} is a file but it needs to be a folder.");
             std::process::exit(1);
         }
     } else if repos_dir.is_symlink() {
-        eprintln!(
-            "The {:?} is a symlink but it does not lead to anywhere.",
-            repos_dir
-        );
+        eprintln!("The {repos_dir:?} is a symlink but it does not lead to anywhere.");
         std::process::exit(1);
     } else {
         create_dir(&repos_dir)
-            .unwrap_or_else(|_| panic!("Could not create the {:?} folder. Aborting.", repos_dir));
+            .unwrap_or_else(|_| panic!("Could not create the {repos_dir:?} folder. Aborting."));
     }
 
     std::fs::canonicalize(&repos_dir)
-        .unwrap_or_else(|_| panic!("The {:?} folder is missing.", repos_dir))
+        .unwrap_or_else(|_| panic!("The {repos_dir:?} folder is missing."))
 }
 
 fn collect_data(
@@ -467,16 +464,16 @@ fn collect_data(
         std::fs::create_dir("report/src")?;
     }
     for mdbook in mdbooks {
-        log::info!("book: {:?}", mdbook);
+        log::info!("book: {mdbook:?}");
         count += 1;
         if args.limit > 0 && count >= args.limit {
             break;
         }
         let book_toml_file = mdbook.book_toml_file(&repos_dir);
 
-        log::info!("book.toml: {:?}", book_toml_file);
+        log::info!("book.toml: {book_toml_file:?}");
         if !book_toml_file.exists() {
-            log::error!("book.toml does not exist: {:?}", book_toml_file);
+            log::error!("book.toml does not exist: {book_toml_file:?}");
             mdbook.error = Some("book.toml does not exist. Do we have the correct folder configured for this mdbook?".to_string());
             continue;
         }
@@ -487,7 +484,7 @@ fn collect_data(
         let everything = match toml::from_str::<Table>(&content) {
             Ok(data) => data,
             Err(err) => {
-                log::error!("Error parsing toml {book_toml_file:?}: {:?}", err);
+                log::error!("Error parsing toml {book_toml_file:?}: {err:?}");
                 mdbook.error = Some(err.to_string());
                 continue;
             }
@@ -503,8 +500,8 @@ fn collect_data(
             });
 
         if !fields.is_empty() {
-            log::error!("Extra fields in book.toml {book_toml_file:?}: {:?}", fields);
-            mdbook.error = Some(format!("Extra fields in book.toml: {:?}", fields));
+            log::error!("Extra fields in book.toml {book_toml_file:?}: {fields:?}");
+            mdbook.error = Some(format!("Extra fields in book.toml: {fields:?}"));
         }
 
         mdbook.everything = Some(everything);
@@ -512,7 +509,7 @@ fn collect_data(
         let data = match toml::from_str::<BookToml>(&content) {
             Ok(data) => data,
             Err(err) => {
-                log::error!("Error parsing toml {book_toml_file:?}: {:?}", err);
+                log::error!("Error parsing toml {book_toml_file:?}: {err:?}");
                 mdbook.error = Some(err.to_string());
                 continue;
             }
@@ -527,12 +524,12 @@ fn collect_data(
 fn clone_repositories(args: &Cli, repos_dir: &Path, mdbooks: &mut Vec<MDBook>) {
     let mut count = 0;
     for mdbook in mdbooks {
-        log::info!("book: {:?}", mdbook);
+        log::info!("book: {mdbook:?}");
         match mdbook.repo.update_repository(repos_dir, false) {
             Ok(_) => {}
             Err(err) => {
-                log::error!("Error updating repo: {:?}", err);
-                mdbook.error = Some(format!("{:?}", err));
+                log::error!("Error updating repo: {err:?}");
+                mdbook.error = Some(format!("{err:?}"));
                 continue;
             }
         }
@@ -688,10 +685,7 @@ fn language_page(mdbooks: &Vec<MDBook>) -> String {
     }
     if !missing.is_empty() {
         md += format!(
-            "The following languages are not in our list of supported languages: {:?} Please open an [issue]({})\n\n",
-            missing,
-            REPO
-        )
+            "The following languages are not in our list of supported languages: {missing:?} Please open an [issue]({REPO})\n\n")
         .as_str();
     }
 
@@ -1197,7 +1191,7 @@ fn create_book_pages(mdbooks: &Vec<MDBook>) -> String {
             .repo
             .path(&std::fs::canonicalize("report/src/").unwrap());
         let path = filename.parent().unwrap();
-        log::warn!("path: {:?}", path);
+        log::warn!("path: {path:?}");
         std::fs::create_dir_all(path).unwrap();
         let mut md = format!("# {}\n\n", mdbook.title);
         let folder = if mdbook.folder.is_none() {
@@ -1220,7 +1214,7 @@ fn create_book_pages(mdbooks: &Vec<MDBook>) -> String {
 
         // TODO: use add_extension when it becomes available
         let filename = format!("{}.md", filename.as_os_str().to_str().unwrap());
-        log::warn!("filename: {:?}", filename);
+        log::warn!("filename: {filename:?}");
         std::fs::write(filename, md).unwrap();
 
         let relative = mdbook.relative();
