@@ -31,9 +31,11 @@ jobs:
       - name: Checkout site source
         uses: actions/checkout@v4
 
+      - name: Show rust version
+        run: rustc -vV
+
       - name: Build binary
-        run: |
-          cargo build
+        run: cargo build
 
       - name: Run Clippy on our code
         run: cargo clippy -- --deny warnings
