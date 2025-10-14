@@ -44,13 +44,13 @@ jobs:
         env:
           RUST_LOG: debug
         run: |
-          ./target/debug/public-mdbooks --clone
+          ./target/debug/public-mdbooks --clone --log info
 
       - name: Collect data
         env:
           RUST_LOG: debug
         run: |
-          ./target/debug/public-mdbooks --report
+          ./target/debug/public-mdbooks --report --log info
 
       - name: Download mdBook
         run: |
