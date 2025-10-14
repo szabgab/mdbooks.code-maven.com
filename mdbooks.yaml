@@ -695,6 +695,26 @@
   site: https://book.rustlang-es.org/
   description: The Rust Programming Language translated to Spanish
 
+- title: Rust para Go Devs
+  repo: https://github.com/RustLangES/rust-for-go-devs
+  site: https://go-book.rustlang-es.org/es/
+  description: Rust for Go Developers in Spanish
+
+- title: Rust para C#/.NET Developers
+  repo: https://github.com/RustLangES/rust-para-dotnet-devs
+  site: https://dotnet-book.rustlang-es.org/
+  description: Rust for C#/.NET Developers
+
+- title: El libro de Rust Embebido
+  repo: https://github.com/RustLangES/rust-embedded-book
+  site: https://embedded-book.rustlang-es.org/
+  description: Embedded Rust in Spanish
+
+- title: Comprehensive Rust 🦀
+  repo: https://github.com/google/comprehensive-rust
+  site: https://google.github.io/comprehensive-rust/es/
+  description: Comprehensive Rust in Spanish
+
 - title: Язык программирования Rust
   site: https://doc.rust-lang.ru/book/
   repo: https://github.com/rust-lang-ru/book
