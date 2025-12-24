@@ -913,3 +913,9 @@
   repo: https://github.com/paradigmxyz/reth
   description: Reth (short for Rust Ethereum) is an Ethereum full node implementation that is focused on being user-friendly, highly modular, as well as being fast and efficient.
 
+#- title: Rust Project Primer
+#  site: https://rustprojectprimer.com/
+#  repo: 
+#  description: A Practical Guide on how to Structure and Maintain your Rust Projects by Patrick M. Elsen
+
+
