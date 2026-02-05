@@ -918,4 +918,7 @@
   repo: https://github.com/rust-project-primer/book
   description: A Practical Guide on how to Structure and Maintain your Rust Projects by Patrick M. Elsen
 
-
+- title: mdbookkit
+  site: https://docs.tonywu.dev/mdbookkit/
+  repo: https://github.com/tonywu6/mdbookkit
+  description: 'Documentation for "mdbookkit", a collection of mdBook preprocessors currently focused on ergonomic and robust linking to external resources.'
