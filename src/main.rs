@@ -530,7 +530,7 @@ fn clone_repositories(args: &Cli, repos_dir: &Path, mdbooks: &mut Vec<MDBook>) {
     let mut count = 0;
     for mdbook in mdbooks {
         log::info!("book: {mdbook:?}");
-        match mdbook.repo.update_repository(repos_dir, false) {
+        match mdbook.repo.update_repository(repos_dir, false, Some(0)) {
             Ok(_) => {}
             Err(err) => {
                 log::error!("Error updating repo: {err:?}");
