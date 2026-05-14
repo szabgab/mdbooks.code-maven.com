@@ -700,9 +700,9 @@ dependencies = [
 
 [[package]]
 name = "git-digger"
-version = "0.2.2"
+version = "0.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5c16767030d9dbd511fc96dd5725e9ad95ecaa471cd6dbf52d38bfb9297e635d"
+checksum = "e6b9f4e385c932991c4fede18bc857afc2606435c5e400a3c7efa2233f7935b2"
 dependencies = [
  "env_logger",
  "log",
