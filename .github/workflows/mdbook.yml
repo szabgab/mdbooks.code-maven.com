@@ -74,6 +74,7 @@ jobs:
       - name: Check mdBook components
         run: |
           ls -l
+          export PATH=$PATH:.
           mdbook --version
           mdbook-embedify --version
           mdbook-alerts --version
