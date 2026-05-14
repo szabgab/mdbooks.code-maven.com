@@ -522,11 +522,11 @@
 - title: Documentaiton for NetAuth 
   repo: https://github.com/netauth/docs
 
-- title: Molybdenum
-  description: Minimal Authentication Server built on Node.js, Express.js, MySQL and Typescript.
-  repo: https://github.com/opeolluwa/molybdenum
-  folder: docs
-  site: https://opeolluwa.github.io/molybdenum/
+#- title: Molybdenum
+#  description: Minimal Authentication Server built on Node.js, Express.js, MySQL and Typescript.
+#  repo: https://github.com/opeolluwa/molybdenum
+#  folder: docs
+#  site: https://opeolluwa.github.io/molybdenum/
 
 - title: learnings-notebook
   description: My personal notes of the things I am learning. Published for fellow explorers. by Nihal Kumar
