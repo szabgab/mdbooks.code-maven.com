@@ -83,12 +83,12 @@ jobs:
       - name: Generate pages
         run: |
           export PATH=$PATH:$(pwd)
-          ./mdbook build report/ --dest-dir ../book/
+          ./mdbook build report/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: book/
+          path: report/book/
 
   # Deployment job
   deploy:
