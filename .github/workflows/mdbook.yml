@@ -84,10 +84,6 @@ jobs:
         run: |
           export PATH=$PATH:$(pwd)
           ./mdbook build report/ --dest-dir ../book/
-          perl -i -p -e 's{href="index.html"}{href="."}g'           book/toc.js
-          perl -i -p -e 's{(href="[a-zA-Z0-9.][^"]+)\.html"}{$1"}g' book/toc.js
-          find book/ -name *.html | xargs perl -i -p -e 's{href="index.html"}{href="."}g'
-          find book/ -name *.html | xargs perl -i -p -e 's{(href="[a-zA-Z0-9.][^"]+)\.html"}{$1"}g'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
