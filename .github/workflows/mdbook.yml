@@ -61,6 +61,7 @@ jobs:
           wget https://github.com/MR-Addict/mdbook-embedify/releases/download/${EMBEDIFY_VERSION}/mdbook-embedify-${EMBEDIFY_VERSION}-x86_64-unknown-linux-gnu.zip
           unzip mdbook-embedify-${EMBEDIFY_VERSION}-x86_64-unknown-linux-gnu.zip
           mv mdbook-embedify-${EMBEDIFY_VERSION}-x86_64-unknown-linux-gnu/mdbook-embedify .
+          chmod +x mdbook-embedify
 
           wget https://github.com/lambdalisue/rs-mdbook-alerts/releases/download/v${ALERTS_VERSION}/mdbook-alerts-x86_64-unknown-linux-gnu
           mv mdbook-alerts-x86_64-unknown-linux-gnu mdbook-alerts
@@ -69,6 +70,14 @@ jobs:
           wget https://github.com/Michael-F-Bryan/mdbook-linkcheck/releases/download/v${LINKCHECK_VERSION}/mdbook-linkcheck.x86_64-unknown-linux-gnu.zip
           unzip mdbook-linkcheck.x86_64-unknown-linux-gnu.zip -x README.md LICENSE
           chmod +x mdbook-linkcheck
+
+      - name: Check mdBook components
+        run: |
+          ls -l
+          mdbook --version
+          mdbook-embedify --version
+          mdbook-alerts --version
+          mdbook-linkcheck --version
 
       - name: Generate pages
         run: |
