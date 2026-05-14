@@ -34,13 +34,6 @@ In order to generate the `md` files for our book we clone all the repositories, 
 
 ## RUN locally
 
-In one terminal run:
-
-```
-mdbook serve report
-```
-
-
 Clone all the repositories to the `repos` folder. (You can also create a symbolic link called `repos` to point to some other disk.)
 
 ```
@@ -54,6 +47,13 @@ cargo run -- --report && mdbook build report
 Because we generate all the `md` files in our own book they are listed in the `.gitignore` and that breaks the `watch` of mdbooks.
 So is won't rebuild automatically when we re-generate the report. That's why we need to run `mdbook build` every time we generate
 the report.
+
+In another terminal run:
+
+```
+mdbook serve report
+```
+
 
 ## TODO
 
