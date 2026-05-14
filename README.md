@@ -17,7 +17,7 @@ e.g. which configuration options do they use with which values, which plugins th
 
 ## CONTRIBUTION
 
-Out site is itself an mdbook, but one where the md files are also generated.
+The site is itself an mdbook, but one where the md files are also generated.
 
 The `mdbooks.yaml` file contains the list of mdBooks. If you'd like to add another one, just add it to the end of the list.
 
